@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>bienbenido a las carreras</h1>
+    <style>
+        #container {
+          width: 400px;
+          height: 400px;
+          position: relative;
+          background: yellow;
+        }
+        #animate {
+          width: 50px;
+          height: 50px;
+          position: absolute;
+          background-color: red;
+        }
+        </style>
+        <body>
+        
+        
+        
+        <!--<div id ="container">-->
+          <div id ="animate"></div>
+        </div>
+        
+        <script>
+        function myMove() {
+          var elem = document.getElementById("animate");   
+          var pos = 0;
+          var id = setInterval(frame, 8);
+
+          function frame() {
+            if (pos == 1000) {
+              clearInterval(id);
+            } else {
+              pos++; 
+              //elem.style.top = pos + "px"; 
+              elem.style.left = pos + "px"; 
+            }
+          }
+        }
+        </script>
+        <br>
+        <br>
+        <br>
+        <style>
+            #container1 {
+              width: 400px;
+              height: 400px;
+              position: relative;
+              background: yellow;
+            }
+            #animate1 {
+              width: 50px;
+              height: 50px;
+              position: absolute;
+              background-color: red;
+            }
+            </style>
+            <body>
+            
+            
+            
+            <!--<div id ="container">-->
+              <div id ="animate1"></div>
+            </div>
+            
+            <script>
+            function myMove1() {
+              var elem = document.getElementById("animate1");   
+              var pos = 0;
+              var id = setInterval(frame, 8);
+    
+              function frame() {
+                if (pos == 1000) {
+                  clearInterval(id);
+                } else {
+                  pos++; 
+                  //elem.style.top = pos + "px"; 
+                  elem.style.left = pos + "px"; 
+                }
+              }
+            }
+            </script>
+      <br>
+      <br> 
+      <br>
+      <br>
+      <br> 
+    <input type="button" value="Jugador1!"id="btnjugar" onclick="myMove()">
+    <input type="button" value="Jugador2!"id="btnjugar1" onclick="myMove1()">
+    <input type="button" value="Ganador"id="mostargandor">
+</body>
+<script src="js/caballo.js"></script>
+
+<script>
+
+//creo jugador humano
+var caballo = new Caballo("Rosinante","Quiteño");
+
+//creo jugador bot
+var robot= new Caballo("Tiro al Blanco","robot");
+
+//juega
+document.getElementById("btnjugar")
+    .addEventListener("click",function(){
+            caballo.avanzar();
+
+    });
+document.getElementById("btnjugar1")
+    .addEventListener("click",function(){
+            
+            robot.avanzar();
+    });
+document.getElementById("mostargandor")
+    .addEventListener("click",function(){
+        if(caballo.totalRecorrido()>robot.totalRecorrido()){
+            console.log(caballo.nombre +" es el ganador");
+        }else{
+            console.log(robot.nombre +" es el ganador");
+
+
+            console.log("________________________");
+            console.log("resulado");
+            console.log(caballo.nombre+" recorrio"+ caballo.totalRecorrido());
+            console.log(robot.nombre+" recorrio"+ robot.totalRecorrido());
+        }
+    });
+
+
+    
+
+
+
+//mostrar ganador
+
+
+
+</script>
+
+
+</html>
